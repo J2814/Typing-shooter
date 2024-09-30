@@ -1,15 +1,16 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.UI.Image;
 
 public class InputManager : MonoBehaviour
 {
     private string currentInput;
-    private KeyCode pressedKey = KeyCode.None;
 
-
+    public static Action<string> PlayerShoots;
 
     public Text TextUi;
     private void DebugTextUi()
@@ -21,9 +22,14 @@ public class InputManager : MonoBehaviour
     {
         EngQwertyInput();
 
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if ((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) && Input.GetKeyDown(KeyCode.Backspace))
         {
             ClearInput();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            ConfirmInput();
         }
         DebugTextUi();
     }
@@ -37,10 +43,21 @@ public class InputManager : MonoBehaviour
                 currentInput += key.ToString().ToLower();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Backspace)){
+            currentInput = currentInput.Substring(0, currentInput.Length - 1);
+        }
     }
 
     private void ClearInput()
     {
         currentInput = string.Empty;
+    }
+
+    private void ConfirmInput()
+    {
+        Debug.Log("Current input is " + currentInput);
+        PlayerShoots?.Invoke(currentInput);
+        ClearInput();
     }
 }
