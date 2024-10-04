@@ -16,9 +16,8 @@ public class PlayerManager : MonoBehaviour
 
     private void OnDisable()
     {
-        RecieveDamage += reductHP;
+        RecieveDamage -= reductHP;
     }
-
     public void reductHP(int hp)
     {
         this.hp -= hp;

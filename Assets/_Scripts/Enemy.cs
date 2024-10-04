@@ -18,6 +18,9 @@ public class Enemy : Target
     private void Attack()
     {
         Debug.Log(this.name + " attacked");
+        
+        
+        PlayerManager.RecieveDamage?.Invoke(1);
     }
 
     private IEnumerator AttackWithDelay(float delay)

@@ -16,7 +16,12 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            GameObject target = GetRandomTarget(TargetPrefabs);
+            SpawnPoint spawnPoint = GetRandomSpawnPoint(SpawnPoints);
+            SpawnTarget(target, spawnPoint);
+        }
     }
 
 
@@ -29,11 +34,23 @@ public class Spawner : MonoBehaviour
     
     private SpawnPoint GetRandomSpawnPoint(List<SpawnPoint> spawnPoints) 
     {
-        //Check is spawn point occupied
+        SpawnPoint sp = null;
 
-        //List<SpawnPoint> 
+        List<SpawnPoint> notOccupiedSpawnPoints = new List<SpawnPoint>();
+        
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            if (spawnPoints[i].OccupingTarget == null)
+            {
+                notOccupiedSpawnPoints.Add(spawnPoints[i]);
+            }
+        }
 
-        SpawnPoint sp = spawnPoints[Random.Range(0, spawnPoints.Count)];
+        if(notOccupiedSpawnPoints.Count > 0)
+        {
+            sp = notOccupiedSpawnPoints[Random.Range(0, notOccupiedSpawnPoints.Count)];
+        }
+
         return sp; 
     }
 
@@ -43,6 +60,12 @@ public class Spawner : MonoBehaviour
         {
             return;
         }
+
+        if (sp == null)
+        {
+            return;
+        }
+
         Instantiate(target, TargetHolder);
         target.transform.position = sp.transform.position;
         sp.AssignTarget(target.GetComponent<Target>());
