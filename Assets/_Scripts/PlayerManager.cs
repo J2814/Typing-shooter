@@ -18,9 +18,14 @@ public class PlayerManager : MonoBehaviour
     {
         RecieveDamage += reductHP;
     }
+
     public void reductHP(int hp)
     {
-        hp -= 1;
+        this.hp -= hp;
+        if (this.hp < 0)
+        {
+            this.hp = 0;
+        }
     }
 
     private void Update()
