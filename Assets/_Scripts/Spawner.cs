@@ -66,8 +66,8 @@ public class Spawner : MonoBehaviour
             return;
         }
 
-        Instantiate(target, TargetHolder);
-        target.transform.position = sp.transform.position;
+        GameObject spawnedTarget = Instantiate(target, TargetHolder);
+        spawnedTarget.transform.position = sp.transform.position;
         sp.AssignTarget(target.GetComponent<Target>());
 
     }
