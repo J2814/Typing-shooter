@@ -30,6 +30,9 @@ public class Spawner : MonoBehaviour
     private SpawnPoint GetRandomSpawnPoint(List<SpawnPoint> spawnPoints) 
     {
         //Check is spawn point occupied
+
+        //List<SpawnPoint> 
+
         SpawnPoint sp = spawnPoints[Random.Range(0, spawnPoints.Count)];
         return sp; 
     }
