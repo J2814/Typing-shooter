@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using Unity.VisualScripting;
 public class Target : MonoBehaviour
 {
     private WordCue wordCue;
@@ -11,6 +12,8 @@ public class Target : MonoBehaviour
     private string currentWord;
 
     private TextMeshProUGUI text;
+
+    public Action OnDeath; 
     private void OnEnable()
     {
         InputManager.PlayerShoots += CheckIfShot;
@@ -46,6 +49,8 @@ public class Target : MonoBehaviour
 
     private void Die()
     {
+        //PlayerManager.RecieveDamage?.Invoke(2);
+        OnDeath?.Invoke();
         Destroy(this.gameObject);
     }
 }

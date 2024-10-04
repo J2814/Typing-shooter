@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,18 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
     private int hp = 3;
+    public static Action<int> RecieveDamage;
 
-    public void reductHP()
+    private void OnEnable()
+    {
+        RecieveDamage += reductHP;
+    }
+
+    private void OnDisable()
+    {
+        RecieveDamage += reductHP;
+    }
+    public void reductHP(int hp)
     {
         hp -= 1;
     }
