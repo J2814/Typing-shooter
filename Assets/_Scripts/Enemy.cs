@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class Enemy : Target
 {
-    // Start is called before the first frame update
+    public float Seconds;
     void Start()
     {
-        
+        StartCoroutine(AttackWithDelay(Seconds));
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void Attack()
     {
         Debug.Log(this.name + " attacked");
+    }
+
+    private IEnumerator AttackWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Attack();
     }
 }
