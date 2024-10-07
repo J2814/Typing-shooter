@@ -10,13 +10,16 @@ public class ScoreManager : MonoBehaviour
 {
     public int score = 0;
     public Text scoreText;
-    public static Action<int> PlayerGotScore; 
+    public static Action<int> PlayerGotScore;
 
-    void Start()
+    private void OnEnable()
     {
-        UpdateScoreText();
-
         PlayerGotScore += AddScore;
+    }
+
+    private void OnDisable()
+    {
+        PlayerGotScore -= AddScore;
     }
 
     public void AddScore(int points)
