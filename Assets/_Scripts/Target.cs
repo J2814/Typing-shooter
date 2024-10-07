@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -49,7 +49,7 @@ public class Target : MonoBehaviour
 
     private void Die()
     {
-        //PlayerManager.RecieveDamage?.Invoke(2);
+        //ScoreManger.AddScore?.Inovke(сколько очков);
         OnDeath?.Invoke();
         Destroy(this.gameObject);
     }
