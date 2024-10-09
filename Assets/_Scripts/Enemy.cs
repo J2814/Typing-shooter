@@ -29,4 +29,10 @@ public class Enemy : Target
 
         Attack();
     }
+
+    internal override void Die()
+    {
+        //
+        base.Die();
+    }
 }

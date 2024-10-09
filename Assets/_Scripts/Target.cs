@@ -34,6 +34,7 @@ public class Target : MonoBehaviour
     {
         currentWord = wordCue.RandomWord();
         text.text = currentWord;
+        WordTracker.AddWord?.Invoke(currentWord);
     }
 
     private void CheckIfShot(string word)
@@ -47,9 +48,11 @@ public class Target : MonoBehaviour
         }
     }
 
-    private void Die()
+    internal virtual void Die()
     {
         //ScoreManger.AddScore?.Inovke(сколько очков);
+
+        WordTracker.RemoveWord?.Invoke(currentWord);
         OnDeath?.Invoke();
         Destroy(this.gameObject);
     }
