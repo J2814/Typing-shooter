@@ -14,8 +14,8 @@ public class InputManager : MonoBehaviour
 
     public Text TextUi;
 
-    public static Action PlayerKill;
-    public static Action PlayerMiss;
+    //public static Action PlayerKill;
+    //public static Action PlayerMiss;
     private void DebugTextUi()
     {
         TextUi.text = currentInput;
@@ -23,16 +23,16 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            PlayerKill?.Invoke();
-            Debug.Log("PlayerKill");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            PlayerMiss?.Invoke();
-            Debug.Log("PlayerMiss");
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    PlayerKill?.Invoke();
+        //    Debug.Log("PlayerKill");
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    PlayerMiss?.Invoke();
+        //    Debug.Log("PlayerMiss");
+        //}
 
 
         EngQwertyInput();

@@ -9,6 +9,9 @@ public class PlayerManager : MonoBehaviour
     private int hp = 3;
     public static Action<int> RecieveDamage;
 
+    public static Action PlayerKill;
+    public static Action PlayerMiss;
+
     private void OnEnable()
     {
         RecieveDamage += reductHP;
