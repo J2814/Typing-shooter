@@ -6,8 +6,9 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    private int hp = 3;
+    public int hp = 3;
     public static Action<int> RecieveDamage;
+    public static Action<int> HPChanged;
 
     public static Action PlayerKill;
     public static Action PlayerMiss;
@@ -28,6 +29,7 @@ public class PlayerManager : MonoBehaviour
         {
             this.hp = 0;
         }
+        HPChanged?.Invoke(hp);
     }
 
     private void Update()

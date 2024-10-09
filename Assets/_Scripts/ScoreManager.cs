@@ -5,12 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.UI.Image;
 using System.Collections.Generic;
+using UnityEditor;
 
 public class ScoreManager : MonoBehaviour
 {
     public int score = 0;
     public Text scoreText;
     public static Action<int> PlayerGotScore;
+    public static Action<int> ScoreChanged;
 
     private void OnEnable()
     {
@@ -26,6 +28,7 @@ public class ScoreManager : MonoBehaviour
     {
         score += points;
         UpdateScoreText();
+        ScoreChanged?.Invoke(score);
     }
 
     void UpdateScoreText()
