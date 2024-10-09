@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : Target
 {
+    public GameObject deathEffectPrefab;
+
     public float Seconds;
     void Start()
     {
@@ -32,7 +34,11 @@ public class Enemy : Target
 
     internal override void Die()
     {
-        //
+        if (deathEffectPrefab != null)
+        {
+            Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        }
+
         base.Die();
     }
 }
