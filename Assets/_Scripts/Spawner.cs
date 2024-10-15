@@ -9,21 +9,50 @@ public class Spawner : MonoBehaviour
     public List<GameObject> TargetPrefabs = new List<GameObject>();
 
     public Transform TargetHolder;
+
+    public float SpawnTime;
+
+    public float SpawnSpeedUpTime;
+
+    public float MinimumSpawnTime;
+
+    private float currentSpawnTime;
+
     void Start()
     {
-        //ыловловл
+        currentSpawnTime = SpawnTime;
     }
 
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            GameObject target = GetRandomTarget(TargetPrefabs);
-            SpawnPoint spawnPoint = GetRandomSpawnPoint(SpawnPoints);
-            SpawnTarget(target, spawnPoint);
+            RandomSpawn();
         }
+
     }
 
+    private void TimedSpawn()
+    {
+        currentSpawnTime -= Time.deltaTime;
+        if (currentSpawnTime <= 0)
+        {
+            RandomSpawn();
+            SpawnTime -= SpawnSpeedUpTime;
+            if (SpawnTime < MinimumSpawnTime)
+            {
+                SpawnTime = MinimumSpawnTime;
+            }
+            currentSpawnTime = SpawnTime;
+        }
+    }
+    private void RandomSpawn()
+    {
+        GameObject target = GetRandomTarget(TargetPrefabs);
+        SpawnPoint spawnPoint = GetRandomSpawnPoint(SpawnPoints);
+        SpawnTarget(target, spawnPoint);
+    }
 
     private GameObject GetRandomTarget(List<GameObject> Targets)
     {
