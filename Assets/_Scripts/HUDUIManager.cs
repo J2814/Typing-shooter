@@ -10,7 +10,11 @@ public class HUDUIManager : MonoBehaviour
     public PlayerManager playerManager;
 
     public Text scoreText;
-    public Text hpText;
+    //public Text hpText;
+
+    public Image heart1;
+    public Image heart2;
+    public Image heart3;
 
     private void OnEnable()
     {
@@ -29,11 +33,14 @@ public class HUDUIManager : MonoBehaviour
         scoreText.text = $"Score: {newScore}";
     }
 
-    //пока что HP так показывается, позже можно сделать как предлагал Семён
-    private void UpdateHPUI(int newHP)
+    private void UpdateHPUI(int currentHP)
     {
-        hpText.text = $"HP: {newHP}";
+        //hpText.text = $"HP: {newHP}";
+        heart1.gameObject.SetActive(currentHP >= 1);
+        heart2.gameObject.SetActive(currentHP >= 2);
+        heart3.gameObject.SetActive(currentHP >= 3);
     }
+
 
     private void Start()
     {
