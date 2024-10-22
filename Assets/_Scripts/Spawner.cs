@@ -18,6 +18,9 @@ public class Spawner : MonoBehaviour
 
     private float currentSpawnTime;
 
+    [SerializeField]
+    private bool timedSpawn;
+
     void Start()
     {
         currentSpawnTime = SpawnTime;
@@ -25,6 +28,10 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
+        if (timedSpawn)
+        {
+            TimedSpawn();
+        }
         
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
@@ -97,7 +104,7 @@ public class Spawner : MonoBehaviour
 
         GameObject spawnedTarget = Instantiate(target, TargetHolder);
         spawnedTarget.transform.position = sp.transform.position;
-        sp.AssignTarget(target.GetComponent<Target>());
+        sp.AssignTarget(spawnedTarget.GetComponent<Target>());
 
     }
 }

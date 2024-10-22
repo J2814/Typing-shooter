@@ -248,10 +248,10 @@ GameObject:
   - component: {fileID: 7410664272879952217}
   - component: {fileID: 7290837322001209832}
   - component: {fileID: 3223284834244636253}
-  - component: {fileID: 3762769341030744113}
   - component: {fileID: 6940348327179302041}
+  - component: {fileID: -7044619142558759086}
   m_Layer: 0
-  m_Name: Target
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -344,19 +344,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3762769341030744113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7202980894400234802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4935e835f542ad4591cd8351054c26a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWord: 
 --- !u!114 &6940348327179302041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,3 +358,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWordSet: []
   WordSet: {fileID: 4900000, guid: 9161c5256023f1d47b2786e035fd9269, type: 3}
+--- !u!114 &-7044619142558759086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7202980894400234802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd156dff053df5344bf7e84607fd7812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWord: 
+  ScoreValue: 1
+  DeathEffectPrefab: {fileID: 2696347132582089904, guid: 55dea5b1fa80ff541bad98e01276ba51, type: 3}
+  AttackEffectPrefab: {fileID: 5422998378607310767, guid: 3e92dd6d407e06545be13437a192a99d, type: 3}
+  SecondsBeforeAttack: 3

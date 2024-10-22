@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
         {
             this.hp = 0;
         }
-        HPChanged?.Invoke(hp);
+        HPChanged?.Invoke(this.hp);
     }
 
     private void Update()

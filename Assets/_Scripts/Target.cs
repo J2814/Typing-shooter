@@ -13,6 +13,8 @@ public class Target : MonoBehaviour
 
     private TextMeshProUGUI text;
 
+    public int ScoreValue;
+
     public Action OnDeath; 
     private void OnEnable()
     {
@@ -25,16 +27,23 @@ public class Target : MonoBehaviour
     }
     void Start()
     {
+        Init();
+    }
+
+
+    protected void Init()
+    {
         wordCue = GetComponent<WordCue>();
         text = GetComponentsInChildren<TextMeshProUGUI>()[0];
         AssignWord();
     }
-
     private void AssignWord()
     {
+        
         currentWord = wordCue.RandomWord();
         text.text = currentWord;
         WordTracker.AddWord?.Invoke(currentWord);
+        Debug.Log("Assigned Word is " + currentWord);
     }
 
     private void CheckIfShot(string word)
@@ -50,7 +59,7 @@ public class Target : MonoBehaviour
 
     internal virtual void Die()
     {
-        //ScoreManger.AddScore?.Inovke(сколько очков);
+        ScoreManager.PlayerGotScore?.Invoke(ScoreValue);
         PlayerManager.PlayerKill?.Invoke();
         WordTracker.RemoveWord?.Invoke(currentWord);
         OnDeath?.Invoke();

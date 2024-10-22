@@ -22,6 +22,7 @@ public class SpawnPoint : MonoBehaviour
     {
         OccupingTarget.OnDeath -= UnassingTarget;
         OccupingTarget = null;
+        
     }
 
 }

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Enemy : Target
 {
-    public GameObject deathEffectPrefab;
+    public GameObject DeathEffectPrefab;
 
-    public float Seconds;
+    public GameObject AttackEffectPrefab;
+
+    public float SecondsBeforeAttack = 3;
     void Start()
     {
-        StartCoroutine(AttackWithDelay(Seconds));
+        Init();
+        StartCoroutine(AttackWithDelay(SecondsBeforeAttack));
+        
     }
 
     void Update()
@@ -19,8 +23,12 @@ public class Enemy : Target
 
     private void Attack()
     {
+        if (AttackEffectPrefab != null)
+        {
+            Instantiate(AttackEffectPrefab, transform.position, Quaternion.identity);
+        }
+
         Debug.Log(this.name + " attacked");
-        
         
         PlayerManager.RecieveDamage?.Invoke(1);
     }
@@ -34,11 +42,10 @@ public class Enemy : Target
 
     internal override void Die()
     {
-        if (deathEffectPrefab != null)
+        if (DeathEffectPrefab != null)
         {
-            Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+            Instantiate(DeathEffectPrefab, transform.position, Quaternion.identity);
         }
-
         base.Die();
     }
 }
