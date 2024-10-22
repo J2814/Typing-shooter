@@ -1919,7 +1919,7 @@ MonoBehaviour:
   SpawnTime: 3
   SpawnSpeedUpTime: 0.05
   MinimumSpawnTime: 1
-  timedSpawn: 0
+  timedSpawn: 1
 --- !u!4 &1026528677
 Transform:
   m_ObjectHideFlags: 0
