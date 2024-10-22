@@ -5,45 +5,39 @@ using UnityEngine;
 public class AnimationManager : MonoBehaviour
 {
     private Animator animator;
-
-    public string attackAnimation = "Attack";
-    public string deathAnimation = "Death";
-    public string idleAnimation = "Idle";
-    public string walkAnimation = "Walk";
-    public string runAnimation = "Run";
-
-    void Start()
+    private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    public void PlayAttackAnimation()
+    public void SetAnimationState(string state)
     {
-        animator.Play(attackAnimation);
-    }
+        animator.SetBool("IsAttacking", false);
+        animator.SetBool("IsDead", false);
+        animator.SetBool("IsWaiting", false);
+        animator.SetBool("IsWalking", false);
+        animator.SetBool("IsRunning", false);
 
-    public void PlayDeathAnimation()
-    {
-        animator.Play(deathAnimation);
-    }
-
-    public void PlayIdleAnimation()
-    {
-        animator.Play(idleAnimation);
-    }
-
-    public void PlayWalkAnimation()
-    {
-        animator.Play(walkAnimation);
-    }
-
-    public void PlayRunAnimation()
-    {
-        animator.Play(runAnimation);
-    }
-
-    void Update()
-    {
-        
+        switch (state)
+        {
+            case "Attack":
+                animator.SetBool("IsAttacking", true);
+                break;
+            case "Death":
+                animator.SetBool("IsDead", true);
+                break;
+            case "Wait":
+                animator.SetBool("IsWaiting", true);
+                break;
+            case "Walk":
+                animator.SetBool("IsWalking", true);
+                break;
+            case "Run":
+                animator.SetBool("IsRunning", true);
+                break;
+            default:
+                Debug.LogWarning("Unknown animation state: " + state);
+                break;
+        }
     }
 }
