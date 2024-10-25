@@ -51,6 +51,7 @@ public class WordTracker : MonoBehaviour
     {
         if (!CurrentWords.Contains(word))
         {
+            Debug.Log("Miss");
             PlayerManager.PlayerMiss?.Invoke();
         }
     }

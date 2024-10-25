@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
         }
         HPChanged?.Invoke(this.hp);
     }
-
+    
     private void Update()
     {
         /*if (Input.GetKeyDown(KeyCode.Home))

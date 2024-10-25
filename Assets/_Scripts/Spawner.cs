@@ -24,6 +24,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         currentSpawnTime = SpawnTime;
+        RandomSpawn();
     }
 
     void Update()

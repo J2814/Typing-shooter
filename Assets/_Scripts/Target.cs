@@ -6,6 +6,8 @@ using System;
 using Unity.VisualScripting;
 public class Target : MonoBehaviour
 {
+
+
     private WordCue wordCue;
 
     [SerializeField]
@@ -28,6 +30,7 @@ public class Target : MonoBehaviour
     void Start()
     {
         Init();
+
     }
 
 
