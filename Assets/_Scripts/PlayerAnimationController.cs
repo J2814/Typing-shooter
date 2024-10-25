@@ -20,23 +20,23 @@ public class PlayerAnimationController : MonoBehaviour
     {
         ResetAnimationParameters();
 
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetBool("IsAttacking", true);
         }
-        else if (Input.GetKeyDown(KeyCode.D)) 
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             animator.SetBool("IsDead", true);
         }
-        else if (Input.GetKey(KeyCode.S)) 
+        else if (Input.GetKey(KeyCode.S))
         {
             animator.SetBool("IsWaiting", true);
         }
-        else if (Input.GetKey(KeyCode.W)) 
+        else if (Input.GetKey(KeyCode.W))
         {
             animator.SetBool("IsWalking", true);
         }
-        else if (Input.GetKey(KeyCode.LeftShift)) 
+        else if (Input.GetKey(KeyCode.LeftShift))
         {
             animator.SetBool("IsRunning", true);
         }
