@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerManager : MonoBehaviour
 
     public static Action PlayerKill;
     public static Action PlayerMiss;
+
+    public GameObject LoseUI;
+    public Spawner spawner;
 
     private void OnEnable()
     {
@@ -25,13 +29,20 @@ public class PlayerManager : MonoBehaviour
     public void reductHP(int hp)
     {
         this.hp -= hp;
-        if (this.hp < 0)
+        if (this.hp <= 0)
         {
-            this.hp = 0;
+            //this.hp = 0;
+            GameOver();
         }
         HPChanged?.Invoke(this.hp);
     }
-    
+
+    private void GameOver()
+    {
+        LoseUI.SetActive(true);
+        spawner.GameOver();
+    }
+
     private void Update()
     {
         /*if (Input.GetKeyDown(KeyCode.Home))

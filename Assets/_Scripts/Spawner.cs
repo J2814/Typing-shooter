@@ -21,6 +21,8 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private bool timedSpawn;
 
+    private bool isGameOver = false;
+
     void Start()
     {
         currentSpawnTime = SpawnTime;
@@ -29,16 +31,24 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if (timedSpawn)
+        if (!isGameOver)
         {
-            TimedSpawn();
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            RandomSpawn();
+            if (timedSpawn)
+            {
+                TimedSpawn();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                RandomSpawn();
+            }
         }
 
+    }
+
+    public void GameOver()
+    {
+        isGameOver = true;
     }
 
     private void TimedSpawn()

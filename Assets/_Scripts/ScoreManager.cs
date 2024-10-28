@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
     private int killStreak = 1;
     public Text scoreText;
     public static Action<int> PlayerGotScore;
+    public static Action<int> GameOverScoreUpdate;
     public static Action<int> ScoreChanged;
 
     private void OnEnable()
@@ -46,6 +47,7 @@ public class ScoreManager : MonoBehaviour
         //Debug.Log("Points: " + points + " killCount: " + killStreak + " Points * killstreak " + points * killStreak);
         UpdateScoreText();
         ScoreChanged?.Invoke(score);
+        GameOverScoreUpdate?.Invoke(score);
     }
 
     private void IncreaseMulti()
