@@ -8,7 +8,7 @@ using UnityEngine;
 public class WordCue : MonoBehaviour
 {
     public List<string> currentWordSet = new List<string>();
-    public TextAsset WordSet;
+   // public TextAsset WordSet=difficultyManager.DiffText;
 
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class WordCue : MonoBehaviour
     }
     private void UpdateWordSet()
     {
-        var content = WordSet.text;
+        var content = difficultyManager.DiffText.text;
         currentWordSet = new List<string>(content.Split("\n"));
     }
     public string RandomWord()

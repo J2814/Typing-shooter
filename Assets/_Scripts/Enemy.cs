@@ -8,7 +8,7 @@ public class Enemy : Target
 
     public GameObject AttackEffectPrefab;
 
-    public float SecondsBeforeAttack = 3;
+    private float SecondsBeforeAttack = difficultyManager.MainSecondsBeforeAttack;
     void Start()
     {
         Init();

@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
 
     public Transform TargetHolder;
 
-    public float SpawnTime;
+    public static float SpawnTime;
 
     public float SpawnSpeedUpTime;
 
@@ -31,6 +31,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
+      //  Debug.Log(SpawnTime+"/"+ difficultyManager.MainStartSpawnTime);
         if (!isGameOver)
         {
             if (timedSpawn)
