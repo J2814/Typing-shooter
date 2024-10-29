@@ -10,36 +10,35 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
 
-    public Button PlayButton,SettingsButton,ExitButton,BackButton,VolumeButton,ContinueButton,
-        Dchil,DEasy,DMed,Dhard,Dhell;
+    public Button PlayButton, SettingsButton, ExitButton, BackButton, VolumeButton, ContinueButton,
+        Dchil, DEasy, DMed, Dhard, Dhell;
     public Slider MV, AV;
-    public TextMeshProUGUI MVT, AVT,TD;
+    public TextMeshProUGUI MVT, AVT, TD;
     //Button button;
     public Canvas lp;
-    static int difficulty=0;
-  
+    static int difficulty = 0;
+
 
     public void Start()
     {
         offDiff();
         onbuttons();
         SetClick();
-       // button=Instantiate(BackButton, new Vector3(0, 0, 0), Quaternion.identity);
+        // button=Instantiate(BackButton, new Vector3(0, 0, 0), Quaternion.identity);
         //button.transform.SetParent(lp.transform, false);
         //newButton = PlayButton;
         //newButton.gameObject.layer = 5;
         //newButton=Instantiate(PlayButton,new Vector3(0,0,0), Quaternion.identity);
         //newButton.transform.SetParent(lp.transform,false);
     }
-
     public void SetClick()
     {
         PlayButton.onClick.AddListener(Play_click);
-       SettingsButton.onClick.AddListener(Settings_click);
+        SettingsButton.onClick.AddListener(Settings_click);
         ExitButton.onClick.AddListener(Exit_click);
         BackButton.onClick.AddListener(BackButton_click);
         VolumeButton.onClick.AddListener(VolumeButton_Click);
-       ContinueButton.onClick.AddListener(Continue_click);
+        ContinueButton.onClick.AddListener(Continue_click);
         Dchil.onClick.AddListener(()=>{ difficulty = 0; Debug.Log(difficulty); });
         DEasy.onClick.AddListener(() => { difficulty = 1; Debug.Log(difficulty); });
         DMed.onClick.AddListener(() => { difficulty = 2; Debug.Log(difficulty); });
