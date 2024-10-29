@@ -16,7 +16,7 @@ public class MainMenuManager : MonoBehaviour
     public TextMeshProUGUI MVT, AVT, TD;
     //Button button;
     public Canvas lp;
-    static int difficulty = 0;
+    static public int difficulty = 0;
 
 
     public void Start()
@@ -52,7 +52,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void Continue_click()
     {
-        SceneManager.LoadScene("Test level 3");
+        SceneManager.LoadScene("PlayableTestLevel");
     }
     public void Settings_click()
     {
