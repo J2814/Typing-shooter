@@ -1904,8 +1904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5108ebbc9d163724f89593671a910265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSecondsAttack: 0
-  startSecondsSpawn: 0
+  startSecondsAttack: 45
+  startSecondsSpawn: 20
   EasyWords: {fileID: 4900000, guid: 396a15d5eb11b3e4faa395d31499466a, type: 3}
   MediumWords: {fileID: 4900000, guid: ee0882ee2db8ecf46a8cd81ad5bcb29e, type: 3}
   HardWords: {fileID: 4900000, guid: acbc4d1abb46b38498637089dd557da6, type: 3}
