@@ -22,23 +22,24 @@ public class PlayerAnimationController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.SetBool("IsAttacking", true);
+            animator.SetTrigger("Attack");
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            animator.SetBool("IsDead", true);
+            animator.SetBool("Die", true);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            animator.SetBool("IsWaiting", true);
+            animator.SetTrigger("Idle");
         }
         else if (Input.GetKey(KeyCode.W))
         {
-            animator.SetBool("IsWalking", true);
+            animator.SetTrigger("Walk");
         }
         else if (Input.GetKey(KeyCode.LeftShift))
         {
-            animator.SetBool("IsRunning", true);
+            //animator.SetBool("IsRunning", true);
+            animator.SetTrigger("Run");
         }
     }
 
