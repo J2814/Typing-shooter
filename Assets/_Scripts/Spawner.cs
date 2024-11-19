@@ -8,6 +8,12 @@ public class Spawner : MonoBehaviour
 
     public List<GameObject> TargetPrefabs = new List<GameObject>();
 
+    public List<GameObject> BossTargetPrefabs = new List<GameObject>();
+
+    public int ParBossSpawn;
+
+    private int BossSpawn = 0;
+
     public Transform TargetHolder;
 
     public static float SpawnTime;
@@ -22,6 +28,9 @@ public class Spawner : MonoBehaviour
     private bool timedSpawn;
 
     private bool isGameOver = false;
+    
+    private bool SpawnPause=false;
+    private SpawnPoint LastSPB = null;
 
     void Start()
     {
@@ -34,6 +43,10 @@ public class Spawner : MonoBehaviour
       //  Debug.Log(SpawnTime+"/"+ difficultyManager.MainStartSpawnTime);
         if (!isGameOver)
         {
+            if (CheckOccupiedAllSP(SpawnPoints)==true||BossSpawn==ParBossSpawn)
+            {
+                SpawnPause = true;
+            }
             if (timedSpawn)
             {
                 TimedSpawn();
@@ -54,25 +67,87 @@ public class Spawner : MonoBehaviour
 
     private void TimedSpawn()
     {
-        currentSpawnTime -= Time.deltaTime;
-        if (currentSpawnTime <= 0)
+        if (SpawnPause==false) 
         {
-            RandomSpawn();
-            SpawnTime -= SpawnSpeedUpTime;
-            if (SpawnTime < MinimumSpawnTime)
+            currentSpawnTime -= Time.deltaTime;
+            if (currentSpawnTime <= 0)
             {
-                SpawnTime = MinimumSpawnTime;
+
+                RandomSpawn();
+                SpawnTime -= SpawnSpeedUpTime;
+                if (SpawnTime < MinimumSpawnTime)
+                {
+                    SpawnTime = MinimumSpawnTime;
+                }
+                currentSpawnTime = SpawnTime;
+                BossSpawn++;
+
             }
-            currentSpawnTime = SpawnTime;
         }
+        else
+        {
+            if(LastSPB != null && LastSPB.OccupingTarget != null) {
+            }
+            else if (LastSPB!=null && LastSPB.OccupingTarget == null)
+            {
+                BossSpawn = 0; SpawnPause = false;
+            }
+           else if (BossSpawn == ParBossSpawn) 
+            {
+                SpawnPoint SPB = GetRandomSpawnPoint(SpawnPoints);
+                RandomBossSpawn(SPB);
+                
+                Debug.Log("1f");
+                LastSPB = SPB;
+                SpawnPause = true;
+
+
+            }
+            if (CheckOccupiedAllSP(SpawnPoints)==true)
+            {
+                Debug.Log("2f");
+                if (CheckOccupiedAllSP(SpawnPoints) == false)
+                {
+                    SpawnPause = false;
+                }
+            }
+        }
+    }
+
+    private void RandomBossSpawn(SpawnPoint sp)
+    {
+
+        GameObject target = GetRandomTarget(BossTargetPrefabs);
+        SpawnPoint spawnPoint = sp;
+        SpawnTarget(target, spawnPoint);
+
     }
     private void RandomSpawn()
     {
-        GameObject target = GetRandomTarget(TargetPrefabs);
-        SpawnPoint spawnPoint = GetRandomSpawnPoint(SpawnPoints);
-        SpawnTarget(target, spawnPoint);
-    }
+       
+            GameObject target = GetRandomTarget(TargetPrefabs);
+            SpawnPoint spawnPoint = GetRandomSpawnPoint(SpawnPoints);
 
+            SpawnTarget(target, spawnPoint);
+       
+    }
+    private bool CheckOccupiedAllSP(List<SpawnPoint> spawnPoints) 
+    {
+        int countOccupiet = 0;
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            if (spawnPoints[i].OccupingTarget != null)
+            {
+                countOccupiet++;
+            }
+        }
+        if (countOccupiet == spawnPoints.Count)
+        {
+            return true;
+        }
+        return false;
+        
+    }
     private GameObject GetRandomTarget(List<GameObject> Targets)
     {
         GameObject target = null;
