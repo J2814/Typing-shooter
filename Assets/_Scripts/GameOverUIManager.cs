@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class GameOverUIManager : MonoBehaviour
 {
-    public Text scoreText;         
+    public GameObject gameOverMenu;
+    public Text scoreText;
+    public Text bestScoreText;
 
     private void OnEnable()
     {
@@ -28,8 +30,21 @@ public class GameOverUIManager : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    private void UpdateGameOverScore(int finalScore)
+    public void UpdateGameOverScore(int currentScore)
     {
-        scoreText.text = "Score: " + finalScore;
+        scoreText.text = "Score: " + currentScore;
+
+        UpdateBestScoreUI();
+    }
+
+    private void UpdateBestScoreUI()
+    {
+        int bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        bestScoreText.text = "Best Score: " + bestScore;
+    }
+
+    private void Start()
+    {
+        UpdateBestScoreUI();
     }
 }

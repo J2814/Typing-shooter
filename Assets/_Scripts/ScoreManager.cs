@@ -18,6 +18,12 @@ public class ScoreManager : MonoBehaviour
     public static Action<int> PlayerGotScore;
     public static Action<int> GameOverScoreUpdate;
     public static Action<int> ScoreChanged;
+    public int bestScore = 0;
+
+    private void Start()
+    {
+        bestScore = PlayerPrefs.GetInt("BestScore", 0);
+    }
 
     private void OnEnable()
     {
@@ -48,6 +54,12 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
         ScoreChanged?.Invoke(score);
         GameOverScoreUpdate?.Invoke(score);
+
+        if (score > bestScore)
+        {
+            bestScore = score;
+            PlayerPrefs.SetInt("BestScore", bestScore);
+        }
     }
 
     private void IncreaseMulti()
