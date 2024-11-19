@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using Unity.VisualScripting;
+using UnityEngine.XR;
 public class Target : MonoBehaviour
 {
 
@@ -56,6 +57,7 @@ public class Target : MonoBehaviour
         Debug.Log("Check if shot");
         if (word.Trim().Equals(currentWord.Trim(), StringComparison.OrdinalIgnoreCase))
         {
+            Hand.LookThere?.Invoke(transform.position);
             Die();
         }
     }
