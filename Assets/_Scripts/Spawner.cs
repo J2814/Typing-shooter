@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
       //  Debug.Log(SpawnTime+"/"+ difficultyManager.MainStartSpawnTime);
         if (!isGameOver)
         {
-            if (CheckOccupiedAllSP(SpawnPoints)==true||BossSpawn==ParBossSpawn)
+            if (BossSpawn==ParBossSpawn)
             {
                 SpawnPause = true;
             }
