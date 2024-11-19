@@ -2041,6 +2041,9 @@ MonoBehaviour:
   - {fileID: 2068527726}
   TargetPrefabs:
   - {fileID: 7202980894400234802, guid: f96db7f7984397f40b42a0866b06f022, type: 3}
+  BossTargetPrefabs:
+  - {fileID: 245681629219691239, guid: 461167cbb1318e540b2b294243b44511, type: 3}
+  ParBossSpawn: 3
   TargetHolder: {fileID: 1074286886}
   SpawnSpeedUpTime: 0.05
   MinimumSpawnTime: 1
