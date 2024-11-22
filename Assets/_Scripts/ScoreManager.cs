@@ -20,6 +20,8 @@ public class ScoreManager : MonoBehaviour
     public static Action<int> ScoreChanged;
     public int bestScore = 0;
 
+    private int multi = 1;
+
     private void Start()
     {
         bestScore = PlayerPrefs.GetInt("BestScore", 0);
@@ -28,14 +30,14 @@ public class ScoreManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerGotScore += AddScore;
-        //PlayerManager.PlayerMiss += ResetKillstreak;
+        PlayerManager.PlayerMiss += ResetKillstreak;
         PlayerManager.PlayerKill += IncreaseMulti;
     }
 
     private void OnDisable()
     {
         PlayerGotScore -= AddScore;
-        //PlayerManager.PlayerMiss -= ResetKillstreak;
+        PlayerManager.PlayerMiss -= ResetKillstreak;
         PlayerManager.PlayerKill -= IncreaseMulti;
     }
 
@@ -48,7 +50,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int points)
     {
-        score += points * killStreak;
+        score += points * multi;
         
         //Debug.Log("Points: " + points + " killCount: " + killStreak + " Points * killstreak " + points * killStreak);
         UpdateScoreText();
@@ -64,12 +66,15 @@ public class ScoreManager : MonoBehaviour
 
     private void IncreaseMulti()
     {
+        Debug.Log("Player Kill Increase multi");
         killStreak++;
     }
 
     private void ResetKillstreak()
     {
-        killStreak = 1;
+        Debug.Log("multi reset");
+        killStreak = 0;
+        multi = 1;
     }
 
     void UpdateScoreText()

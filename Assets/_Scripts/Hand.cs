@@ -34,7 +34,8 @@ public class Hand : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.zero), Time.deltaTime * RotationResetSpeed);
+        
+        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Vector3.zero), Time.deltaTime * RotationResetSpeed);
     }
 
     private void Shoot(string dumstring)

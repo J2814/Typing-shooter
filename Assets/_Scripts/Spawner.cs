@@ -27,6 +27,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private bool timedSpawn;
 
+    [SerializeField]
     private bool isGameOver = false;
     
     private bool SpawnPause=false;

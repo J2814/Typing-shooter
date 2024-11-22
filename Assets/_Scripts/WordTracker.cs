@@ -49,10 +49,22 @@ public class WordTracker : MonoBehaviour
     }
     private void CheckIfPlayerMissed(string word)
     {
-        if (!CurrentWords.Contains(word))
+
+        bool wordFound = false;
+        foreach (string s in CurrentWords) 
+        { 
+            if (word.Trim().Equals(s.Trim(), StringComparison.OrdinalIgnoreCase))
+            {
+                wordFound = true;
+                break;
+            }
+        }
+
+        if (!wordFound)
         {
             Debug.Log("Miss");
             PlayerManager.PlayerMiss?.Invoke();
         }
+
     }
 }
