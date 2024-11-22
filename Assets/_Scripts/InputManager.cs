@@ -73,6 +73,7 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("Current input is " + currentInput);
         PlayerShoots?.Invoke(currentInput);
+        //AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.PlayerShot);
         ClearInput();
     }
 }

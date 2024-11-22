@@ -5,13 +5,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class SoundBank : ScriptableObject
 {
-    public List<Sound> Angry;
+    public Sound PlayerShot;
 
-    public List<Sound> Throw;
+    public Sound EnemyShot;
 
-    public List<Sound> IdleExtra;
-
-    public List<Sound> Bump;
+    public Sound EnemyDeath;
 
     public Sound Start;
 
@@ -21,5 +19,10 @@ public class SoundBank : ScriptableObject
 
     public Sound Resume;
 
+    public Sound GenericUiButton;
+
+    public Sound MultiplicationAdd;
+
+    public Sound PlayerMiss;
 
 }
