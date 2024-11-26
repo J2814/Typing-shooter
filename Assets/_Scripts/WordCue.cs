@@ -12,6 +12,11 @@ public class WordCue : MonoBehaviour
 
     private void Awake()
     {
+        //UpdateWordSet();
+    }
+
+    private void Start()
+    {
         UpdateWordSet();
     }
     private void UpdateWordSet()
