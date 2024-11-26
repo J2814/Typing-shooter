@@ -13,7 +13,7 @@ public class MainMenuManager : MonoBehaviour
     public Button PlayButton, SettingsButton, ExitButton, BackButton, VolumeButton, ContinueButton,
         Dchil, DEasy, DMed, Dhard, Dhell;
     public Slider MV, AV;
-    public TextMeshProUGUI MVT, AVT, TD;
+    public Text MVT, AVT, TD;
     //Button button;
     public Canvas lp;
     static public int difficulty = 0;
