@@ -15,6 +15,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]
     private int killStreak = 1;
     public Text scoreText;
+    public Text multiplierText;
     public static Action<int> PlayerGotScore;
     public static Action<int> GameOverScoreUpdate;
     public static Action<int> ScoreChanged;
@@ -68,6 +69,8 @@ public class ScoreManager : MonoBehaviour
     {
         Debug.Log("Player Kill Increase multi");
         killStreak++;
+        multi = killStreak;
+        UpdateMultiplierText();
     }
 
     private void ResetKillstreak()
@@ -75,10 +78,16 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("multi reset");
         killStreak = 0;
         multi = 1;
+        UpdateMultiplierText();
     }
 
     void UpdateScoreText()
     {
         scoreText.text = "Score: " + score;
+    }
+
+    void UpdateMultiplierText()
+    {
+        multiplierText.text = $"{multi}x";
     }
 }

@@ -6,6 +6,9 @@ public class PauseUIManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
 
+    public Text currentScoreText;
+    public Text bestScoreText;
+
     private bool isPaused = false;
 
     void Update()
@@ -32,6 +35,7 @@ public class PauseUIManager : MonoBehaviour
 
     public void Pause()
     {
+        UpdateScoreTexts();
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         isPaused = true;
@@ -42,5 +46,15 @@ public class PauseUIManager : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
 
+    }
+
+    private void UpdateScoreTexts()
+    {
+        ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+        if (scoreManager != null)
+        {
+            currentScoreText.text = $"Current Score: {scoreManager.score}";
+            bestScoreText.text = $"Best Score: {scoreManager.bestScore}";
+        }
     }
 }
