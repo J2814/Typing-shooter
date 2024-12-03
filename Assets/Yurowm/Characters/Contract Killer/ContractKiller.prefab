@@ -1642,9 +1642,9 @@ GameObject:
   - component: {fileID: 400096}
   - component: {fileID: 9500000}
   - component: {fileID: 11400000}
-  - component: {fileID: -3990223565217722526}
   - component: {fileID: 3332720067732570936}
-  - component: {fileID: -287735318036395580}
+  - component: {fileID: -3990223565217722526}
+  - component: {fileID: -2554201368439162838}
   m_Layer: 0
   m_Name: ContractKiller
   m_TagString: Untagged
@@ -1723,6 +1723,19 @@ MonoBehaviour:
     rightGun: {fileID: 100000, guid: 5928b07c18727fe47acb7df646f608ef, type: 3}
     leftGun: {fileID: 0}
     controller: {fileID: 9100000, guid: dffbd9326394a8d47a87a1e2aec70a59, type: 2}
+--- !u!114 &3332720067732570936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe2f3b8341c67a4ab071d56b173ec5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWordSet: []
 --- !u!114 &-3990223565217722526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1739,20 +1752,7 @@ MonoBehaviour:
   ScoreValue: 1
   DeathEffectPrefab: {fileID: 100096, guid: 54acc53f65be2a24d8670972d8675ad8, type: 3}
   AttackEffectPrefab: {fileID: 5422998378607310767, guid: 3e92dd6d407e06545be13437a192a99d, type: 3}
---- !u!114 &3332720067732570936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fe2f3b8341c67a4ab071d56b173ec5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentWordSet: []
---- !u!114 &-287735318036395580
+--- !u!114 &-2554201368439162838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

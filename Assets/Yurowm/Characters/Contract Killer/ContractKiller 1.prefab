@@ -1642,6 +1642,7 @@ GameObject:
   - component: {fileID: 400096}
   - component: {fileID: 9500000}
   - component: {fileID: 11400000}
+  - component: {fileID: -7354359922258891961}
   m_Layer: 0
   m_Name: ContractKiller 1
   m_TagString: Untagged
@@ -1719,3 +1720,15 @@ MonoBehaviour:
     rightGun: {fileID: 100000, guid: 5928b07c18727fe47acb7df646f608ef, type: 3}
     leftGun: {fileID: 0}
     controller: {fileID: 9100000, guid: dffbd9326394a8d47a87a1e2aec70a59, type: 2}
+--- !u!114 &-7354359922258891961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a63ab4cc0287144aa8b171e6ef17793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

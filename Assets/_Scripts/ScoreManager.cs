@@ -70,7 +70,7 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("Player Kill Increase multi");
         killStreak++;
         multi = killStreak;
-        UpdateMultiplierText();
+       // UpdateMultiplierText();
     }
 
     private void ResetKillstreak()
@@ -78,14 +78,13 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("multi reset");
         killStreak = 0;
         multi = 1;
-        UpdateMultiplierText();
+      //  UpdateMultiplierText();
     }
 
     void UpdateScoreText()
     {
         scoreText.text = "Score: " + score;
     }
-
     void UpdateMultiplierText()
     {
         multiplierText.text = $"{multi}x";

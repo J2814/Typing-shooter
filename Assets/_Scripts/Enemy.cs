@@ -14,8 +14,8 @@ public class Enemy : Target
     {
         Init();
         anim = GetComponent<Actions>();
-        StartCoroutine(AttackWithDelay(SecondsBeforeAttack));
-        StartCoroutine(Stay(SecondsBeforeAttack+2));
+        StartCoroutine(AttackWithDelay(SecondsBeforeAttack-1));
+        StartCoroutine(Stay(SecondsBeforeAttack));
     }
 
     void Update()
@@ -37,7 +37,7 @@ public class Enemy : Target
     private IEnumerator Stay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        anim.Stay();
+      anim.Stay();
     }
     private IEnumerator AttackWithDelay(float delay)
     {
@@ -45,14 +45,14 @@ public class Enemy : Target
 
         Attack();
     }
-    
+   
     internal override async void Die()
     {
         base.Die();
         if (DeathEffectPrefab != null)
         {
             Instantiate(DeathEffectPrefab,transform.position,transform.rotation);
-            DeathEffectPrefab.GetComponent<Actions>().Death();
+           // DeathEffectPrefab.GetComponent<Actions>().Death();
         }
      
     }
