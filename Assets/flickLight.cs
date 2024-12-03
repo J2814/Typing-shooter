@@ -4,7 +4,7 @@ using UnityEngine;
 public class BlinkingLight : MonoBehaviour
 {
     public float minWaitTime = 0.1f;
-    public float maxWaitTime = 0.5f;
+    public float maxWaitTime = 3f;
 
     private Light lightComponent;
 
