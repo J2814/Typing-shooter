@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class Hand : MonoBehaviour
@@ -57,6 +58,8 @@ public class Hand : MonoBehaviour
         AimDirection.transform.DOPunchRotation(rotPunch, 0.3f, 10, 1);
         
     }
+
+
 
     private void LookAt(Vector3 whereToLook)
     {

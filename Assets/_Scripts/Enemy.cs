@@ -31,6 +31,9 @@ public class Enemy : Target
             Instantiate(AttackEffectPrefab, transform.position, Quaternion.identity);
         }
         Debug.Log(this.name + " attacked");
+
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.EnemyShot);
+
         PlayerManager.RecieveDamage?.Invoke(1);
     }
 

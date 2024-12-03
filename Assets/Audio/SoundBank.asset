@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd2098ef3b6a7c429d100415173369f, type: 3}
+  m_Name: SoundBank
+  m_EditorClassIdentifier: 
+  PlayerShot: {fileID: 11400000, guid: 69ec0808425d3cf4eb786cf5ea646fac, type: 2}
+  EnemyShot: {fileID: 11400000, guid: 3d5bfb69aa4473b499d3299cc00f02d4, type: 2}
+  EnemyDeath: {fileID: 11400000, guid: 1b06eb1041ef86146a427b2f4e571dd3, type: 2}
+  Start: {fileID: 11400000, guid: 4c4dc4a5848a4f14b89d6a8716ae735f, type: 2}
+  Gameover: {fileID: 11400000, guid: 92cb890f000ff1e4082fef045b2f2de1, type: 2}
+  Pause: {fileID: 11400000, guid: f293deeacd43ded40a9f34aef60ad27a, type: 2}
+  Resume: {fileID: 11400000, guid: 16742d02f3974644cb609b65a2d5652c, type: 2}
+  GenericUiButton: {fileID: 11400000, guid: 11f1085c0a5019c46949a79d7785c977, type: 2}
+  MultiplicationAdd: {fileID: 11400000, guid: 69ec0808425d3cf4eb786cf5ea646fac, type: 2}
+  PlayerMiss: {fileID: 11400000, guid: 2785b54f3ace74849973544b5f1932e9, type: 2}
+  MetroAlarm: {fileID: 0}
+  PlayerDamage: {fileID: 11400000, guid: ddffdcc35b9b2fd4a9ccfa872f9d140c, type: 2}
