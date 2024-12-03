@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.UI.Image;
 using System.Collections.Generic;
+<<<<<<< Updated upstream
 using UnityEditor;
 using System.Runtime.CompilerServices;
 
@@ -20,11 +21,21 @@ public class ScoreManager : MonoBehaviour
     public static Action<int> GameOverScoreUpdate;
     public static Action<int> ScoreChanged;
     public int bestScore = 0;
+=======
+
+
+public class ScoreManager : MonoBehaviour
+{
+    public int score = 0; 
+    public Text scoreText;
+    public static Action<int> PlayerGotScore;
+>>>>>>> Stashed changes
 
     private int multi = 1;
 
     private void Start()
     {
+<<<<<<< Updated upstream
         bestScore = PlayerPrefs.GetInt("BestScore", 0);
     }
 
@@ -47,6 +58,11 @@ public class ScoreManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4)){
             ResetKillstreak();
         }
+=======
+        UpdateScoreText();
+
+        PlayerGotScore += AddScore;
+>>>>>>> Stashed changes
     }
 
     public void AddScore(int points)
