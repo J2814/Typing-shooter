@@ -29,7 +29,9 @@ public class Enemy : Target
         }
 
         Debug.Log(this.name + " attacked");
-        
+
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.EnemyShot);
+
         PlayerManager.RecieveDamage?.Invoke(1);
     }
 
@@ -46,6 +48,7 @@ public class Enemy : Target
         {
             Instantiate(DeathEffectPrefab, transform.position, Quaternion.identity);
         }
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.EnemyDeath);
         base.Die();
     }
 }

@@ -29,10 +29,12 @@ public class PlayerManager : MonoBehaviour
     public void reductHP(int hp)
     {
         this.hp -= hp;
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.PlayerDamage);
         if (this.hp <= 0)
         {
             //this.hp = 0;
             GameOver();
+            AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Gameover);
         }
         HPChanged?.Invoke(this.hp);
     }

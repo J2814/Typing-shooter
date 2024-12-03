@@ -31,6 +31,7 @@ public class PauseUIManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Resume);
     }
 
     public void Pause()
@@ -39,6 +40,8 @@ public class PauseUIManager : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         isPaused = true;
+
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Pause);
     }
 
     public void LoadMainMenu()

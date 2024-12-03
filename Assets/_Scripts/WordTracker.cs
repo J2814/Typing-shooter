@@ -64,6 +64,7 @@ public class WordTracker : MonoBehaviour
         {
             Debug.Log("Miss");
             PlayerManager.PlayerMiss?.Invoke();
+            AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.PlayerMiss);
         }
 
     }

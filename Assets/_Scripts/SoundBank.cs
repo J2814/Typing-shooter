@@ -27,6 +27,7 @@ public class SoundBank : ScriptableObject
 
     public Sound MetroAlarm;
 
+    public Sound PlayerDamage;
 
 
 }
