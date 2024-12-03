@@ -64,6 +64,7 @@ public class Target : MonoBehaviour
 
     internal virtual void Die()
     {
+      
         ScoreManager.PlayerGotScore?.Invoke(ScoreValue);
         PlayerManager.PlayerKill?.Invoke();
         WordTracker.RemoveWord?.Invoke(currentWord);
