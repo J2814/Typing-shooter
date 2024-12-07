@@ -12,7 +12,8 @@ public class MainMenuManager : MonoBehaviour
 
     public Button PlayButton, SettingsButton, ExitButton, BackButton, VolumeButton, ContinueButton,
         Dchil, DEasy, DMed, Dhard, Dhell;
-    public Slider MV, AV;
+    
+    public MySlider MV, AV;
     public Text MVT, AVT, TD;
     //Button button;
     public Canvas lp;
