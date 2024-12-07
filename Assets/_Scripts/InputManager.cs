@@ -56,22 +56,15 @@ public class InputManager : MonoBehaviour
         {
             if (Input.GetKeyDown(key))
             {
-                currentInput += key.ToString().ToLower();
-<<<<<<< Updated upstream
-                
-=======
+                currentInput += key.ToString().ToLower();   
                 animKey?.Invoke();
->>>>>>> Stashed changes
+
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace)){
             currentInput = currentInput.Substring(0, currentInput.Length - 1);
-<<<<<<< Updated upstream
-            
-=======
             animKey?.Invoke();
->>>>>>> Stashed changes
         }
     }
 
