@@ -51,6 +51,20 @@ public class MainMenuManager : MonoBehaviour
     {
         onDiff();
     }
+
+
+    public MySlider VolumeSlider;
+    private float prevSliderVal = -100;
+    private void ChangeVolume()
+    {
+        if (prevSliderVal != VolumeSlider.value)
+        {
+            AudioManager.instance.SetSfxVolume(VolumeSlider.value);
+        }
+        prevSliderVal = VolumeSlider.value;
+    }
+
+
     public void Continue_click()
     {
         SceneManager.LoadScene("PlayableTestLevel");
