@@ -1,6 +1,8 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : Target
 {
@@ -8,10 +10,13 @@ public class Enemy : Target
 
     public GameObject AttackEffectPrefab;
     private Actions anim;
-   
+
+    private Image AttackProgressBar;
+
     private float SecondsBeforeAttack = difficultyManager.MainSecondsBeforeAttack;
     void Start()
     {
+        AttackProgressBar = GetComponentInChildren<Image>();
         Init();
         anim = GetComponent<Actions>();
         StartCoroutine(AttackWithDelay(SecondsBeforeAttack-1));
@@ -44,9 +49,13 @@ public class Enemy : Target
     }
     private IEnumerator AttackWithDelay(float delay)
     {
+        DOTween.To(() => AttackProgressBar.fillAmount, x => AttackProgressBar.fillAmount = x, 0, 0);
+        DOTween.To(() => AttackProgressBar.fillAmount, x => AttackProgressBar.fillAmount = x, 1, delay);
         yield return new WaitForSeconds(delay);
 
         Attack();
+
+        StartCoroutine(AttackWithDelay(SecondsBeforeAttack - 1));
     }
    
     internal override async void Die()
