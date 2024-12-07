@@ -56,6 +56,7 @@ public class Enemy : Target
         Attack();
 
         StartCoroutine(AttackWithDelay(SecondsBeforeAttack - 1));
+        StartCoroutine(Stay(SecondsBeforeAttack));
     }
    
     internal override async void Die()
