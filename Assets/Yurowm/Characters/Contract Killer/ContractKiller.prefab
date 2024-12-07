@@ -1775,7 +1775,7 @@ GameObject:
   - component: {fileID: 6618178663621594551}
   - component: {fileID: 963410184355820730}
   - component: {fileID: 5419690357016651470}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1910,7 +1910,7 @@ GameObject:
   - component: {fileID: 4922345674701404084}
   - component: {fileID: 1767541607576909870}
   - component: {fileID: 1465041097152362100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1958,7 +1958,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &1767541607576909870
 MonoBehaviour:

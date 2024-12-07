@@ -20,7 +20,6 @@ public class ScoreManager : MonoBehaviour
     public static Action<int> GameOverScoreUpdate;
     public static Action<int> ScoreChanged;
     public int bestScore = 0;
-
     private int multi = 1;
 
     private void Start()
@@ -70,7 +69,7 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("Player Kill Increase multi");
         killStreak++;
         multi = killStreak;
-       // UpdateMultiplierText();
+        UpdateMultiplierText();
     }
 
     private void ResetKillstreak()
@@ -78,12 +77,12 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("multi reset");
         killStreak = 0;
         multi = 1;
-      //  UpdateMultiplierText();
+       UpdateMultiplierText();
     }
 
     void UpdateScoreText()
     {
-       // scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + score;
     }
     void UpdateMultiplierText()
     {
