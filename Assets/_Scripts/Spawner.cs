@@ -34,8 +34,9 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-      //  Debug.Log(SpawnTime+"/"+ difficultyManager.MainStartSpawnTime);
-       
+        //  Debug.Log(SpawnTime+"/"+ difficultyManager.MainStartSpawnTime);
+        if (!isGameOver)
+        {
             if (timedSpawn)
             {
                 TimedSpawn();
@@ -45,7 +46,7 @@ public class Spawner : MonoBehaviour
             {
                 RandomSpawn();
             }
-
+        }
     }
 
     public void GameOver()
