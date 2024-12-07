@@ -5,6 +5,8 @@ using TMPro;
 using System;
 using Unity.VisualScripting;
 using UnityEngine.XR;
+using UnityEngine.UI;
+
 public class Target : MonoBehaviour
 {
 
@@ -14,7 +16,7 @@ public class Target : MonoBehaviour
     [SerializeField]
     private string currentWord;
 
-    private TextMeshProUGUI text;
+    private Text text;
 
     public int ScoreValue;
 
@@ -38,7 +40,7 @@ public class Target : MonoBehaviour
     protected void Init()
     {
         wordCue = GetComponent<WordCue>();
-        text = GetComponentsInChildren<TextMeshProUGUI>()[0];
+        text = GetComponentsInChildren<Text>()[0];
         AssignWord();
     }
     private void AssignWord()
