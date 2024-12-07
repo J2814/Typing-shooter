@@ -5,41 +5,51 @@ using UnityEngine;
 
 public class VolumeController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public MySlider VolumeSlider;
-
     public enum SliderType { Sfx, Music, Master}
-
-    
-
 
     [Serializable]
     public class Slider
     {
         public MySlider MySlider;
         public SliderType Type;
-
-
     }
 
     public List<Slider> SliderList;
-    private float prevSliderVal = -100;
+    private float prevMasterSliderVal = -100;
+    private float prevMusicSliderVal = -100;
+    private float prevSfxSliderVal = -100;
+    
+    void Update()
+    {
+        ChangeVolume();
+    }
     private void ChangeVolume()
     {
-        if (prevSliderVal != VolumeSlider.value)
+        foreach (Slider s in SliderList)
         {
-            AudioManager.instance.SetSfxVolume(VolumeSlider.value);
+            if (s.Type == SliderType.Sfx)
+            {
+                if (prevSfxSliderVal != s.MySlider.value)
+                {
+                    AudioManager.instance.SetSfxVolume(s.MySlider.value);
+                }
+            }
+
+            if (s.Type == SliderType.Music)
+            {
+                if (prevMusicSliderVal != s.MySlider.value)
+                {
+                    AudioManager.instance.SetMusicVolume(s.MySlider.value);
+                }
+            }
+
+            if (s.Type == SliderType.Master)
+            {
+                if (prevMasterSliderVal != s.MySlider.value)
+                {
+                    AudioManager.instance.SetMasterVolume(s.MySlider.value);
+                }
+            }
         }
-        prevSliderVal = VolumeSlider.value;
     }
 }

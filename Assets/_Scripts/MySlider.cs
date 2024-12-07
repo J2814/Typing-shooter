@@ -18,16 +18,4 @@ public class MySlider : Slider
     
 
 
-    //protected override void Start()
-    //{
-    //    VolumeSlider = GetComponent<MySlider>();
-    //}
-    //private void ChangeVolume()
-    //{
-    //    if (prevSliderVal != VolumeSlider.value)
-    //    {
-    //        AudioManager.instance.SetSfxVolume(VolumeSlider.value);
-    //    }
-    //    prevSliderVal = VolumeSlider.value;
-    //}
 }
