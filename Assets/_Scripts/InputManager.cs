@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     private string currentInput;
 
     public static Action<string> PlayerShoots;
+    public static Action animKey;
 
     public Text TextUi;
 
@@ -56,13 +57,21 @@ public class InputManager : MonoBehaviour
             if (Input.GetKeyDown(key))
             {
                 currentInput += key.ToString().ToLower();
+<<<<<<< Updated upstream
                 
+=======
+                animKey?.Invoke();
+>>>>>>> Stashed changes
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace)){
             currentInput = currentInput.Substring(0, currentInput.Length - 1);
+<<<<<<< Updated upstream
             
+=======
+            animKey?.Invoke();
+>>>>>>> Stashed changes
         }
     }
 
