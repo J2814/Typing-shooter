@@ -8,10 +8,6 @@ public class Spawner : MonoBehaviour
 
     public List<GameObject> TargetPrefabs = new List<GameObject>();
 
-
-    public int ParBossSpawn;
-
-
     public Transform TargetHolder;
 
     public static float SpawnTime;
@@ -28,8 +24,7 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private bool isGameOver = false;
     
-    private bool SpawnPause=false;
-    private SpawnPoint LastSPB = null;
+  
 
     void Start()
     {
