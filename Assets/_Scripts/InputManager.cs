@@ -56,11 +56,13 @@ public class InputManager : MonoBehaviour
             if (Input.GetKeyDown(key))
             {
                 currentInput += key.ToString().ToLower();
+                
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace)){
             currentInput = currentInput.Substring(0, currentInput.Length - 1);
+            
         }
     }
 
