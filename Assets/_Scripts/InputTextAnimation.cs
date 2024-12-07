@@ -26,6 +26,6 @@ public class InputTextAnimation : MonoBehaviour
     private void textAnimation()
     {
         textTransform.DOScale(6, 0);
-        textTransform.DOPunchScale(new Vector3(0.5f, 0.5f, 0), 0.5f);
+        textTransform.DOPunchScale(new Vector3(0.5f, 0.5f, 0), 0.25f);
     }
 }
