@@ -67,7 +67,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void Continue_click()
     {
-        SceneManager.LoadScene("PlayableTestLevel");
+        SceneManager.LoadScene("GameLevel");
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Start);
     }
     public void Settings_click()
     {

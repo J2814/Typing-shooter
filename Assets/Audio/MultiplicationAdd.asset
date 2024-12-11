@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2951552cb25d4254a83f024e87f8b76e, type: 3}
-  m_Name: Pause
+  m_Name: MultiplicationAdd
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: d0398009326af674aa9b5917f400442f, type: 3}
+  clip: {fileID: 8300000, guid: eb353176163546d4cbd8e823ad1decb6, type: 3}
   mixerGroup: {fileID: 2373062642034882700, guid: 5a43d98eec2d4ec4a94d3880ff653bdb, type: 2}

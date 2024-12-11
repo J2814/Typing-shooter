@@ -22,5 +22,5 @@ MonoBehaviour:
   GenericUiButton: {fileID: 11400000, guid: 11f1085c0a5019c46949a79d7785c977, type: 2}
   MultiplicationAdd: {fileID: 11400000, guid: 69ec0808425d3cf4eb786cf5ea646fac, type: 2}
   PlayerMiss: {fileID: 11400000, guid: 2785b54f3ace74849973544b5f1932e9, type: 2}
-  MetroAlarm: {fileID: 0}
+  MetroAlarm: {fileID: 11400000, guid: 11f1085c0a5019c46949a79d7785c977, type: 2}
   PlayerDamage: {fileID: 11400000, guid: ddffdcc35b9b2fd4a9ccfa872f9d140c, type: 2}

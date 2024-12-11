@@ -45,7 +45,7 @@ public class Enemy : Target
     private IEnumerator Stay(float delay)
     {
         yield return new WaitForSeconds(delay);
-      anim.Stay();
+        anim.Stay();
     }
     private IEnumerator AttackWithDelay(float delay)
     {

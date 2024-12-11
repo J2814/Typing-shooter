@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/mockup/Test level 3.unity
-    guid: 03e9b9877c799b04f8357fc57c60a747
-  - enabled: 1
-    path: Assets/Scenes/mockup/PlayableTestLevel.unity
-    guid: e46bf16ebacee6740a84046d958aaee9
   - enabled: 1
     path: Assets/Scenes/ActualGame/MainMenu.unity
     guid: b942b79bccd77f34695de5eaa1106580
+  - enabled: 0
+    path: Assets/Scenes/mockup/Test level 3.unity
+    guid: 03e9b9877c799b04f8357fc57c60a747
+  - enabled: 0
+    path: Assets/Scenes/mockup/PlayableTestLevel.unity
+    guid: e46bf16ebacee6740a84046d958aaee9
+  - enabled: 1
+    path: Assets/Scenes/ActualGame/GameLevel.unity
+    guid: 9551807f71ee51d4eb3ca2eb083278e3
   m_configObjects: {}

@@ -70,6 +70,8 @@ public class Target : MonoBehaviour
         ScoreManager.PlayerGotScore?.Invoke(ScoreValue);
         PlayerManager.PlayerKill?.Invoke();
         WordTracker.RemoveWord?.Invoke(currentWord);
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.EnemyDeath);
+
         OnDeath?.Invoke();
         Destroy(this.gameObject);
     }

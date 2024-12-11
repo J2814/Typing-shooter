@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2951552cb25d4254a83f024e87f8b76e, type: 3}
   m_Name: EnemyDeath
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: bf87ef97b54b43244a9f7db46b97b909, type: 3}
+  clip: {fileID: 8300000, guid: 4b394198b020a3c439c7ce7757883785, type: 3}
   mixerGroup: {fileID: 2373062642034882700, guid: 5a43d98eec2d4ec4a94d3880ff653bdb, type: 2}

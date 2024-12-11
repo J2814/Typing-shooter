@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2951552cb25d4254a83f024e87f8b76e, type: 3}
   m_Name: PlayerDamage
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 3990ffd224b8df24d95d3707e048a086, type: 3}
+  clip: {fileID: 8300000, guid: a354b8c129aa08542bc15025b4b75d12, type: 3}
   mixerGroup: {fileID: 2373062642034882700, guid: 5a43d98eec2d4ec4a94d3880ff653bdb, type: 2}

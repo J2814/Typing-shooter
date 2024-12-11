@@ -29,5 +29,5 @@ public class SoundBank : ScriptableObject
 
     public Sound PlayerDamage;
 
-
+    
 }

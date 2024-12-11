@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,9 @@ public class PauseUIManager : MonoBehaviour
     public Text bestScoreText;
 
     private bool isPaused = false;
+
+    public static Action PauseEnabled;
+    public static Action PauseDisabled;
 
     void Update()
     {
@@ -32,6 +36,7 @@ public class PauseUIManager : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Resume);
+        PauseDisabled?.Invoke();
     }
 
     public void Pause()
@@ -42,6 +47,7 @@ public class PauseUIManager : MonoBehaviour
         isPaused = true;
 
         AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Pause);
+        PauseEnabled?.Invoke();
     }
 
     public void LoadMainMenu()

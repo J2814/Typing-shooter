@@ -41,6 +41,8 @@ public class PlayerManager : MonoBehaviour
 
     private void GameOver()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Gameover);
+        Time.timeScale = 0;
         LoseUI.SetActive(true);
         spawner.GameOver();
     }

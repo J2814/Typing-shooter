@@ -58,13 +58,14 @@ public class InputManager : MonoBehaviour
             {
                 currentInput += key.ToString().ToLower();   
                 animKey?.Invoke();
-
+                AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Backspace)){
             currentInput = currentInput.Substring(0, currentInput.Length - 1);
             animKey?.Invoke();
+            AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         }
     }
 

@@ -99,6 +99,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
+        Debug.Log("Play sound" + sound.clip.name);
+
         bool clipPlayed = false;
         foreach (AudioSource source in sourcePool)
         {
@@ -129,8 +131,8 @@ public class AudioManager : MonoBehaviour
     {
         float volume = 0;
         Mixer.GetFloat("MasterVolume", out volume);
-        volume = Mathf.Pow(10, volume);
-
+        volume = Mathf.Pow(10, volume / 20f);
+       
         return volume;
     }
 
@@ -144,8 +146,8 @@ public class AudioManager : MonoBehaviour
     {
         float volume = 0;
         Mixer.GetFloat("SfxVolume", out volume);
-        volume = Mathf.Pow(10, volume);
-
+        volume = Mathf.Pow(10, volume / 20f);
+        
         return volume;
     }
 
@@ -159,7 +161,7 @@ public class AudioManager : MonoBehaviour
     {
         float volume = 0;
         Mixer.GetFloat("MusicVolume", out volume);
-        volume = Mathf.Pow(10, volume);
+        volume = Mathf.Pow(10, volume / 20f);
 
         return volume;
     }

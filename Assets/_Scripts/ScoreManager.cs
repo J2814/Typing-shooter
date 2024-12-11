@@ -70,6 +70,7 @@ public class ScoreManager : MonoBehaviour
         killStreak++;
         multi = killStreak;
         UpdateMultiplierText();
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.MultiplicationAdd);
     }
 
     private void ResetKillstreak()
