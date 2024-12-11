@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6925,7 +6925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSecondsAttack: 15
-  startSecondsSpawn: 20
+  startSecondsSpawn: 12
   EasyWords: {fileID: 4900000, guid: dac78cdf008bd4a41bfd9b423d5837b7, type: 3}
   MediumWords: {fileID: 4900000, guid: 23a31917dc4cd5947a951c5793723a56, type: 3}
   HardWords: {fileID: 4900000, guid: 3e0a8a3b9cec06d4e852d3d9b9e1a27c, type: 3}
