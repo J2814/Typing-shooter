@@ -6924,7 +6924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5108ebbc9d163724f89593671a910265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSecondsAttack: 15
+  startSecondsAttack: 20
   startSecondsSpawn: 12
   EasyWords: {fileID: 4900000, guid: dac78cdf008bd4a41bfd9b423d5837b7, type: 3}
   MediumWords: {fileID: 4900000, guid: 23a31917dc4cd5947a951c5793723a56, type: 3}
