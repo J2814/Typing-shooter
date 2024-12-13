@@ -44,17 +44,17 @@ public class difficultyManager : MonoBehaviour
             case 2:
                 DiffText = MediumWords; 
                 MainSecondsBeforeAttack = startSecondsAttack / ((float)(3)); 
-                Spawner.SpawnTime = startSecondsSpawn / ((float)(3.2));
+                Spawner.SpawnTime = startSecondsSpawn / ((float)(3.5));
                 //Debug.Log(startSecondsSpawn);
                 break;
             case 3:
                 DiffText = MediumWords; 
-                MainSecondsBeforeAttack = startSecondsAttack / ((float)(3.5)); 
-                Spawner.SpawnTime = startSecondsSpawn / ((float)(3.8));
+                MainSecondsBeforeAttack = startSecondsAttack / ((float)(3.7)); 
+                Spawner.SpawnTime = startSecondsSpawn / ((float)(4.2));
                 //Debug.Log(startSecondsSpawn);
                 break;
             case 4:
-                DiffText = HardWords; MainSecondsBeforeAttack = startSecondsAttack / ((float)(5)); Spawner.SpawnTime = startSecondsSpawn / ((float)(5.3));
+                DiffText = HardWords; MainSecondsBeforeAttack = startSecondsAttack / ((float)(4.3)); Spawner.SpawnTime = startSecondsSpawn / ((float)(4.6));
                 Debug.Log(startSecondsSpawn);
                 break;
         }
