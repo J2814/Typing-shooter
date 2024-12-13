@@ -10,11 +10,11 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
 
-    public Button PlayButton, SettingsButton, ExitButton, BackButton, VolumeButton, ContinueButton,
+    public Button PlayButton, SettingsButton, ExitButton, BackButton, ContinueButton,
         Dchil, DEasy, DMed, Dhard, Dhell;
     
-    public MySlider MV, AV;
-    public Text MVT, AVT, TD;
+    public MySlider MV, AV, SFXV;
+    public Text MVT, AVT, TD, SFXVT;
     //Button button;
     public Canvas lp;
     static public int difficulty = 0;
@@ -38,7 +38,6 @@ public class MainMenuManager : MonoBehaviour
         SettingsButton.onClick.AddListener(Settings_click);
         ExitButton.onClick.AddListener(Exit_click);
         BackButton.onClick.AddListener(BackButton_click);
-        VolumeButton.onClick.AddListener(VolumeButton_Click);
         ContinueButton.onClick.AddListener(Continue_click);
         Dchil.onClick.AddListener(()=>{ difficulty = 0; Debug.Log(difficulty); });
         DEasy.onClick.AddListener(() => { difficulty = 1; Debug.Log(difficulty); });
@@ -74,7 +73,12 @@ public class MainMenuManager : MonoBehaviour
     {
         Offbuttons();
         BackButton.gameObject.SetActive(true);
-       VolumeButton.gameObject.SetActive(true);
+        MV.gameObject.SetActive(true);
+        AV.gameObject.SetActive(true);
+        SFXV.gameObject.SetActive(true);
+        MVT.gameObject.SetActive(true);
+        AVT.gameObject.SetActive(true);
+        SFXVT.gameObject.SetActive(true);
     }
     public void Exit_click()
     {
@@ -82,15 +86,6 @@ public class MainMenuManager : MonoBehaviour
     }
     public void BackButton_click() {
         onbuttons();
-    }
-    void VolumeButton_Click() {
-       onVolume();
-        VolumeButton.onClick.AddListener(VolumeButton_Click2);
-    }
-    void VolumeButton_Click2()
-    {
-        offVolume();
-        VolumeButton.onClick.AddListener(VolumeButton_Click);
     }
     void onDiff()
     {
@@ -112,19 +107,13 @@ public class MainMenuManager : MonoBehaviour
         Dhell.gameObject.SetActive(false);
         ContinueButton.gameObject.SetActive(false);
     }
-    void onVolume()
-    {
-        MV.gameObject.SetActive(true);
-        AV.gameObject.SetActive(true);
-        MVT.gameObject.SetActive(true);
-        AVT.gameObject.SetActive(true);
-
-    }
-    void offVolume() {
+    void offSettings() {
         MV.gameObject.SetActive(false);
         AV.gameObject.SetActive(false);
+        SFXV.gameObject.SetActive(false);
         MVT.gameObject.SetActive(false);
         AVT.gameObject.SetActive(false);
+        SFXVT.gameObject.SetActive(false);
     }
     void Offbuttons()
     {
@@ -141,8 +130,7 @@ public class MainMenuManager : MonoBehaviour
         SettingsButton.gameObject.SetActive(true);
         ExitButton.gameObject.SetActive(true);
         BackButton.gameObject.SetActive(false);
-        offVolume();
-        VolumeButton.gameObject.SetActive(false);
+        offSettings();
         // Instantiate(Canvas);
     }
 

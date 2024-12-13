@@ -19,6 +19,7 @@ public class ScoreManager : MonoBehaviour
     public static Action<int> PlayerGotScore;
     public static Action<int> GameOverScoreUpdate;
     public static Action<int> ScoreChanged;
+    public static Action animScore;
     public int bestScore = 0;
     private int multi = 1;
 
@@ -56,6 +57,7 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
         ScoreChanged?.Invoke(score);
         GameOverScoreUpdate?.Invoke(score);
+        animScore?.Invoke();
 
         if (score > bestScore)
         {
@@ -83,10 +85,12 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateScoreText()
     {
+        animScore?.Invoke();
         scoreText.text = "Score: " + score;
     }
     void UpdateMultiplierText()
     {
         multiplierText.text = $"{multi}x";
+        animScore?.Invoke();
     }
 }

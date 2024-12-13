@@ -1912,6 +1912,7 @@ GameObject:
   - component: {fileID: 619923775}
   - component: {fileID: 619923774}
   - component: {fileID: 619923773}
+  - component: {fileID: 619923776}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -1981,6 +1982,18 @@ RectTransform:
   m_AnchoredPosition: {x: -96, y: -38}
   m_SizeDelta: {x: 403.09, y: 197}
   m_Pivot: {x: 1, y: 1}
+--- !u!114 &619923776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619923772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5dd499a8b2b1048af11dc594d338ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &658662954
 GameObject:
   m_ObjectHideFlags: 0
@@ -5882,6 +5895,7 @@ GameObject:
   - component: {fileID: 1931989907}
   - component: {fileID: 1931989906}
   - component: {fileID: 1931989905}
+  - component: {fileID: 1931989908}
   m_Layer: 0
   m_Name: MultiplierText
   m_TagString: Untagged
@@ -5950,6 +5964,18 @@ RectTransform:
   m_AnchoredPosition: {x: 192.8, y: 100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1931989908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931989904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07bc3aca8c338f641bc8caf4a7d3dab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1981824036
 GameObject:
   m_ObjectHideFlags: 0
