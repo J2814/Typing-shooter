@@ -36,6 +36,7 @@ public class PlayerManager : MonoBehaviour
         {
             //this.hp = 0;
             GameOver();
+            AudioManager.instance.PauseMusicSource();
             AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Gameover);
         }
         HPChanged?.Invoke(this.hp);

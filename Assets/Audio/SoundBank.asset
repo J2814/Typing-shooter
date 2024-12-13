@@ -24,3 +24,5 @@ MonoBehaviour:
   PlayerMiss: {fileID: 11400000, guid: 2785b54f3ace74849973544b5f1932e9, type: 2}
   MetroAlarm: {fileID: 11400000, guid: 11f1085c0a5019c46949a79d7785c977, type: 2}
   PlayerDamage: {fileID: 11400000, guid: ddffdcc35b9b2fd4a9ccfa872f9d140c, type: 2}
+  MainMenuMusic: {fileID: 11400000, guid: d4a37c6109dec084b991e4f2848135a7, type: 2}
+  GameplayMusic: {fileID: 11400000, guid: db5816abc05f13b4a8478d152df3892f, type: 2}

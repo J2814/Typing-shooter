@@ -14,7 +14,10 @@ public class PauseUIManager : MonoBehaviour
 
     public static Action PauseEnabled;
     public static Action PauseDisabled;
-
+    private void Start()
+    {
+        AudioManager.instance.PlayMusic(AudioManager.instance.SoundBank.GameplayMusic);
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -22,10 +25,12 @@ public class PauseUIManager : MonoBehaviour
             if (isPaused)
             {
                 Resume();
+                AudioManager.instance.ResumeMusicSource();
             }
             else
             {
                 Pause();
+                AudioManager.instance.PauseMusicSource();
             }
         }
     }

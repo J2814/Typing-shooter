@@ -29,5 +29,9 @@ public class SoundBank : ScriptableObject
 
     public Sound PlayerDamage;
 
-    
+    public Sound MainMenuMusic;
+
+    public Sound GameplayMusic;
+
+
 }

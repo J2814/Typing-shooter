@@ -7,11 +7,13 @@ public class CameraShake : MonoBehaviour
 {
     private void OnEnable()
     {
-        PlayerManager.GotHit += Shake;
+        PlayerManager.GotHit += GotDamagedShake;
+        InputManager.Shoot += ShootShake;
     }
     private void OnDisable()
     {
-        PlayerManager.GotHit -= Shake;
+        PlayerManager.GotHit -= GotDamagedShake;
+        InputManager.Shoot -= ShootShake;
     }
 
     private Vector3 defaultPos;
@@ -23,8 +25,13 @@ public class CameraShake : MonoBehaviour
         defaultPos = transform.position;
         punchPos = defaultPos + new Vector3(0, 0.5f, 0);
     }
-    private void Shake()
+    private void GotDamagedShake()
     {
         transform.DOShakePosition(0.25f, 0.17f, 100);
+    }
+
+    private void ShootShake()
+    {
+        transform.DOShakePosition(0.1f, 0.3f, 50);
     }
 }

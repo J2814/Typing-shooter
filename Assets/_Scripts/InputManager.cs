@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     private string currentInput;
 
     public static Action<string> PlayerShoots;
+    public static Action Shoot;
     public static Action animKey;
 
     public Text TextUi;
@@ -78,6 +79,7 @@ public class InputManager : MonoBehaviour
     {
         Debug.Log("Current input is " + currentInput);
         PlayerShoots?.Invoke(currentInput);
+        Shoot?.Invoke();
         AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.PlayerShot);
         ClearInput();
     }

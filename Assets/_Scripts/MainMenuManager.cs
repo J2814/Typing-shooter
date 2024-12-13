@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void Start()
     {
+        AudioManager.instance.PlayMusic(AudioManager.instance.SoundBank.MainMenuMusic);
         offDiff();
         onbuttons();
         SetClick();
@@ -48,16 +49,16 @@ public class MainMenuManager : MonoBehaviour
     }
 
 
-    public MySlider VolumeSlider;
-    private float prevSliderVal = -100;
-    private void ChangeVolume()
-    {
-        if (prevSliderVal != VolumeSlider.value)
-        {
-            AudioManager.instance.SetSfxVolume(VolumeSlider.value);
-        }
-        prevSliderVal = VolumeSlider.value;
-    }
+    //public MySlider VolumeSlider;
+    //private float prevSliderVal = -100;
+    //private void ChangeVolume()
+    //{
+    //    if (prevSliderVal != VolumeSlider.value)
+    //    {
+    //        AudioManager.instance.SetSfxVolume(VolumeSlider.value);
+    //    }
+    //    prevSliderVal = VolumeSlider.value;
+    //}
 
 
     public void Continue_click()

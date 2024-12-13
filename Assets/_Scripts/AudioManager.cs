@@ -67,30 +67,6 @@ public class AudioManager : MonoBehaviour
             SetMusicVolume(1);
         }
     }
-    //int RandElement<T>(List<T> list)
-    //{
-    //    if (list.Count > 0)
-    //    {
-    //        return Random.Range(0, list.Count - 1);
-    //    }
-    //    else
-    //    {
-    //        return -1;
-    //    }
-    //}
-
-    //public Sound RandomSoundFromList(List<Sound> SoundList)
-    //{
-    //    int index = RandElement<Sound>(SoundList);
-    //    if (index < 0)
-    //    {
-    //        return null;
-    //    }
-    //    else
-    //    {
-    //        return SoundList[index];
-    //    }
-    //}
 
     public void PlaySound(Sound sound)
     {
@@ -123,6 +99,30 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PlayMusic(Sound sound)
+    {
+        if (sound == null)
+        {
+            return;
+        }
+
+        MusicSource.Stop();
+        MusicSource.clip = sound.clip;
+        MusicSource.volume = sound.volume;
+        MusicSource.outputAudioMixerGroup= sound.mixerGroup;
+
+
+        MusicSource.Play();
+    }
+
+    public void PauseMusicSource()
+    {
+        MusicSource.Pause();
+    }
+    public void ResumeMusicSource()
+    {
+        MusicSource.Play();
+    }
     public void SetMasterVolume(float volume)
     {
         PlayerPrefs.SetFloat("MasterVolume", volume);
