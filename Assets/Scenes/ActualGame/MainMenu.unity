@@ -2109,7 +2109,6 @@ MonoBehaviour:
   TD: {fileID: 666630508}
   SFXVT: {fileID: 1001233525}
   lp: {fileID: 1265718390}
-  VolumeSlider: {fileID: 0}
 --- !u!114 &1265718393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3113,7 +3112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -251, y: -122}
+  m_AnchoredPosition: {x: -251, y: -122.00003}
   m_SizeDelta: {x: -1721, y: -1030}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1806418379
@@ -3460,7 +3459,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: For childrens
+  m_Text: Very Easy
 --- !u!222 &1815129043
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3905,7 +3904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2118351612
 RectTransform:
   m_ObjectHideFlags: 0

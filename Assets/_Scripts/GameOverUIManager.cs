@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameOverUIManager : MonoBehaviour
@@ -13,21 +14,25 @@ public class GameOverUIManager : MonoBehaviour
     private void OnEnable()
     {
         ScoreManager.GameOverScoreUpdate += UpdateGameOverScore;
+        ScoreManager.BestScoreUpdate += UpdateBestScoreUI;
     }
 
     private void OnDisable()
     {
         ScoreManager.GameOverScoreUpdate -= UpdateGameOverScore;
+        ScoreManager.BestScoreUpdate -= UpdateBestScoreUI;
     }
 
     public void Retry()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MainMenu()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
@@ -36,17 +41,33 @@ public class GameOverUIManager : MonoBehaviour
     {
         scoreText.text = "Score: " + currentScore;
 
-        UpdateBestScoreUI();
     }
 
-    private void UpdateBestScoreUI()
+    private void UpdateBestScoreUI(int currentBestScore)
     {
-        int bestScore = PlayerPrefs.GetInt("BestScore", 0);
-        bestScoreText.text = "Best Score: " + bestScore;
+        string bestScoreTextWithoutNumbers = "";
+
+        switch (MainMenuManager.difficulty)
+        {
+            case 0:
+                bestScoreTextWithoutNumbers = "Best Score (Very Easy): ";
+                break;
+            case 1:
+                bestScoreTextWithoutNumbers = "Best Score (Easy): ";
+                break;
+            case 2:
+                bestScoreTextWithoutNumbers = "Best Score (Medium): ";
+                break;
+            case 3:
+                bestScoreTextWithoutNumbers = "Best Score (Hard): ";
+                break;
+            case 4:
+                bestScoreTextWithoutNumbers = "Best Score (Insane): ";
+                break;
+        }
+
+        bestScoreText.text = bestScoreTextWithoutNumbers + currentBestScore;
     }
 
-    private void Start()
-    {
-        UpdateBestScoreUI();
-    }
+    
 }
