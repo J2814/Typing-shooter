@@ -31,16 +31,22 @@ public class MainMenuManager : MonoBehaviour
     }
     public void SetClick()
     {
+        //AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         PlayButton.onClick.AddListener(Play_click);
         SettingsButton.onClick.AddListener(Settings_click);
         ExitButton.onClick.AddListener(Exit_click);
         BackButton.onClick.AddListener(BackButton_click);
         ContinueButton.onClick.AddListener(Continue_click);
-        Dchil.onClick.AddListener(()=>{ difficulty = 0; Debug.Log(difficulty); });
-        DEasy.onClick.AddListener(() => { difficulty = 1; Debug.Log(difficulty); });
-        DMed.onClick.AddListener(() => { difficulty = 2; Debug.Log(difficulty); });
-        Dhard.onClick.AddListener(() => {difficulty = 3; Debug.Log(difficulty); });
-        Dhell.onClick.AddListener(() => {difficulty= 4; Debug.Log(difficulty); });
+        Dchil.onClick.AddListener(()=>{ difficulty = 0; Debug.Log(difficulty);  PlayClickSound(); });
+        DEasy.onClick.AddListener(() => { difficulty = 1; Debug.Log(difficulty); PlayClickSound(); });
+        DMed.onClick.AddListener(() => { difficulty = 2; Debug.Log(difficulty); PlayClickSound(); });
+        Dhard.onClick.AddListener(() => {difficulty = 3; Debug.Log(difficulty); PlayClickSound(); });
+        Dhell.onClick.AddListener(() => {difficulty= 4; Debug.Log(difficulty); PlayClickSound(); });
+
+        void PlayClickSound()
+        {
+            AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
+        }
 
     }
     public void Play_click()
@@ -63,11 +69,13 @@ public class MainMenuManager : MonoBehaviour
 
     public void Continue_click()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         SceneManager.LoadScene("GameLevel");
         AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Start);
     }
     public void Settings_click()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         Offbuttons();
         BackButton.gameObject.SetActive(true);
         MV.gameObject.SetActive(true);
@@ -79,13 +87,16 @@ public class MainMenuManager : MonoBehaviour
     }
     public void Exit_click()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         Application.Quit();
     }
     public void BackButton_click() {
+        //AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         onbuttons();
     }
     void onDiff()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         Offbuttons();
         TD.gameObject.SetActive(true);
         Dchil.gameObject.SetActive(true);
@@ -96,6 +107,7 @@ public class MainMenuManager : MonoBehaviour
         ContinueButton.gameObject.SetActive(true);
     }
     void offDiff() {
+        //AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         TD.gameObject.SetActive(false);
         Dchil.gameObject.SetActive(false);
         DEasy.gameObject.SetActive(false);
@@ -105,6 +117,7 @@ public class MainMenuManager : MonoBehaviour
         ContinueButton.gameObject.SetActive(false);
     }
     void offSettings() {
+        //AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         MV.gameObject.SetActive(false);
         AV.gameObject.SetActive(false);
         SFXV.gameObject.SetActive(false);
@@ -114,6 +127,7 @@ public class MainMenuManager : MonoBehaviour
     }
     void Offbuttons()
     {
+        //AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         PlayButton.gameObject.SetActive(false);
         SettingsButton.gameObject.SetActive(false);
         ExitButton.gameObject.SetActive(false);
@@ -123,6 +137,7 @@ public class MainMenuManager : MonoBehaviour
     }
     void onbuttons()
     {
+        //AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         PlayButton.gameObject.SetActive(true);
         SettingsButton.gameObject.SetActive(true);
         ExitButton.gameObject.SetActive(true);

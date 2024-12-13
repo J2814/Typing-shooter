@@ -37,6 +37,7 @@ public class PauseUIManager : MonoBehaviour
 
     public void Resume()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
@@ -46,6 +47,7 @@ public class PauseUIManager : MonoBehaviour
 
     public void Pause()
     {
+
         UpdateScoreTexts();
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
@@ -57,6 +59,7 @@ public class PauseUIManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.GenericUiButton);
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
 
@@ -68,7 +71,28 @@ public class PauseUIManager : MonoBehaviour
         if (scoreManager != null)
         {
             currentScoreText.text = $"Current Score: {scoreManager.score}";
-            bestScoreText.text = $"Best Score: {scoreManager.bestScore}";
+
+            string bestScoreTextWithoutNumbers = "";
+
+            switch (MainMenuManager.difficulty)
+            {
+                case 0:
+                    bestScoreTextWithoutNumbers = "Best Score (Very Easy): ";
+                    break;
+                case 1:
+                    bestScoreTextWithoutNumbers = "Best Score (Easy): ";
+                    break;
+                case 2:
+                    bestScoreTextWithoutNumbers = "Best Score (Medium): ";
+                    break;
+                case 3:
+                    bestScoreTextWithoutNumbers = "Best Score (Hard): ";
+                    break;
+                case 4:
+                    bestScoreTextWithoutNumbers = "Best Score (Insane): ";
+                    break;
+            }
+            bestScoreText.text = bestScoreTextWithoutNumbers + scoreManager.bestScore;
         }
     }
 }

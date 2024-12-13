@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
     public Text multiplierText;
     public static Action<int> PlayerGotScore;
     public static Action<int> GameOverScoreUpdate;
+    public static Action<int> BestScoreUpdate;
     public static Action<int> ScoreChanged;
     public static Action animScore;
     public int bestScore = 0;
@@ -25,8 +26,13 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        bestScore = GetBestScore();
+
+        BestScoreUpdate?.Invoke(bestScore);
+        //bestScore = PlayerPrefs.GetInt("BestScore", 0);
     }
+
+    
 
     private void OnEnable()
     {
@@ -50,7 +56,54 @@ public class ScoreManager : MonoBehaviour
             ResetKillstreak();
         }
     }
+    private int GetBestScore()
+    {
+        int score = 0;
+        switch (MainMenuManager.difficulty)
+        {
+            case 0:
+                score = PlayerPrefs.GetInt("VeryEasyBestScore", 0);
+                break;
+            case 1:
+                score = PlayerPrefs.GetInt("EasyBestScore", 0);
+                break;
+            case 2:
+                score = PlayerPrefs.GetInt("MediumBestScore", 0);
+                break;
+            case 3:
+                score = PlayerPrefs.GetInt("HardBestScore", 0);
+                break;
+            case 4:
+                score = PlayerPrefs.GetInt("InsaneBestScore", 0);
+                break;
+        }
 
+        return score;
+    }
+
+    private void SetBestScore()
+    {
+        switch (MainMenuManager.difficulty)
+        {
+            case 0:
+                PlayerPrefs.SetInt("VeryEasyBestScore", bestScore);
+                break;
+            case 1:
+                PlayerPrefs.SetInt("EasyBestScore", bestScore);
+                break;
+            case 2:
+                PlayerPrefs.SetInt("MediumBestScore", bestScore);
+                break;
+            case 3:
+                PlayerPrefs.SetInt("HardBestScore", bestScore);
+                break;
+            case 4:
+                PlayerPrefs.SetInt("InsaneBestScore", bestScore);
+                break;
+        }
+
+        
+    }
     public void AddScore(int points)
     {
         score += points * multi;
@@ -64,8 +117,9 @@ public class ScoreManager : MonoBehaviour
         if (score > bestScore)
         {
             bestScore = score;
-            PlayerPrefs.SetInt("BestScore", bestScore);
+            SetBestScore();
         }
+        BestScoreUpdate?.Invoke(bestScore);
     }
 
     private void IncreaseMulti()
