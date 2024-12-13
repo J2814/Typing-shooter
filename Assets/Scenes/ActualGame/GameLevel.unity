@@ -7261,8 +7261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1217738022}
-  currentScoreText: {fileID: 1771657446}
-  bestScoreText: {fileID: 2048303126}
+  currentScoreText: {fileID: 2081608993}
+  bestScoreText: {fileID: 1205115659}
 --- !u!4 &1033571456
 Transform:
   m_ObjectHideFlags: 0
