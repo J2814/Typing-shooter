@@ -99,13 +99,14 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("Play sound" + sound.clip.name);
+        //Debug.Log("Play sound" + sound.clip.name);
 
         bool clipPlayed = false;
         foreach (AudioSource source in sourcePool)
         {
             if (!source.isPlaying)
             {
+                source.volume = sound.volume;
                 source.outputAudioMixerGroup = sound.mixerGroup;
                 source.clip = sound.clip;
                 source.Play();
@@ -115,6 +116,7 @@ public class AudioManager : MonoBehaviour
         if (!clipPlayed)
         {
             AudioSource source = sourcePool[UnityEngine.Random.Range(0, sourcePool.Count - 1)];
+            source.volume = sound.volume;
             source.outputAudioMixerGroup = sound.mixerGroup;
             source.clip = sound.clip;
             source.Play();

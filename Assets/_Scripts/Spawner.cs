@@ -23,30 +23,43 @@ public class Spawner : MonoBehaviour
 
     [SerializeField]
     private bool isGameOver = false;
-    
-  
+
+    private bool firstSpawned;
+    private void Awake()
+    {
+        currentSpawnTime = 0;
+    }
 
     void Start()
     {
-        currentSpawnTime = SpawnTime;
-        RandomSpawn();
+        StartCoroutine(FirstSpawnDelay());
     }
 
     void Update()
     {
-        //  Debug.Log(SpawnTime+"/"+ difficultyManager.MainStartSpawnTime);
         if (!isGameOver)
         {
-            if (timedSpawn)
+            if (firstSpawned)
             {
-                TimedSpawn();
-            }
+                if (timedSpawn)
+                {
+                    TimedSpawn();
+                }
 
-            if (Input.GetKeyDown(KeyCode.Alpha0))
-            {
-                RandomSpawn();
+                if (Input.GetKeyDown(KeyCode.Alpha0))
+                {
+                    RandomSpawn();
+                }
             }
         }
+    }
+
+    IEnumerator FirstSpawnDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        currentSpawnTime = SpawnTime;
+        RandomSpawn();
+        firstSpawned = true;
     }
 
     public void GameOver()
@@ -56,21 +69,17 @@ public class Spawner : MonoBehaviour
 
     private void TimedSpawn()
     {
-        
-            currentSpawnTime -= Time.deltaTime;
-            if (currentSpawnTime <= 0)
+        currentSpawnTime -= Time.deltaTime;
+        if (currentSpawnTime <= 0)
+        {
+            RandomSpawn();
+            SpawnTime -= SpawnSpeedUpTime;
+            if (SpawnTime < MinimumSpawnTime)
             {
-
-                RandomSpawn();
-                SpawnTime -= SpawnSpeedUpTime;
-                if (SpawnTime < MinimumSpawnTime)
-                {
-                    SpawnTime = MinimumSpawnTime;
-                }
-                currentSpawnTime = SpawnTime;
-
+                SpawnTime = MinimumSpawnTime;
             }
-       
+            currentSpawnTime = SpawnTime;
+        }
     }
 
    

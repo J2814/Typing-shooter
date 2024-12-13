@@ -20,7 +20,9 @@ public class Target : MonoBehaviour
 
     public int ScoreValue;
 
-    public Action OnDeath; 
+    public Action OnDeath;
+
+    private bool wordAssigned = false;
     private void OnEnable()
     {
         InputManager.PlayerShoots += CheckIfShot;
@@ -36,7 +38,6 @@ public class Target : MonoBehaviour
 
     }
 
-
     protected void Init()
     {
         wordCue = GetComponent<WordCue>();
@@ -50,6 +51,7 @@ public class Target : MonoBehaviour
         text.text = currentWord;
         WordTracker.AddWord?.Invoke(currentWord);
         Debug.Log("Assigned Word is " + currentWord);
+        wordAssigned = true;
     }
 
     private void CheckIfShot(string word)

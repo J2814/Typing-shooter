@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     public void reductHP(int hp)
     {
         this.hp -= hp;
-        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.PlayerDamage);
+        StartCoroutine(DelayPlayerDamageSound());
         if (this.hp <= 0)
         {
             //this.hp = 0;
@@ -37,6 +37,12 @@ public class PlayerManager : MonoBehaviour
             AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.Gameover);
         }
         HPChanged?.Invoke(this.hp);
+    }
+
+    IEnumerator DelayPlayerDamageSound()
+    {
+        yield return new WaitForSeconds(0.3f);
+        AudioManager.instance.PlaySound(AudioManager.instance.SoundBank.PlayerDamage);
     }
 
     private void GameOver()
