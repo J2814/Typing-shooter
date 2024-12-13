@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public int hp = 3;
     public static Action<int> RecieveDamage;
     public static Action<int> HPChanged;
+    public static Action GotHit;
 
     public static Action PlayerKill;
     public static Action PlayerMiss;
@@ -29,6 +30,7 @@ public class PlayerManager : MonoBehaviour
     public void reductHP(int hp)
     {
         this.hp -= hp;
+        GotHit?.Invoke();
         StartCoroutine(DelayPlayerDamageSound());
         if (this.hp <= 0)
         {

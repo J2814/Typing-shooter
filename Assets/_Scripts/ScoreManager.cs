@@ -32,6 +32,7 @@ public class ScoreManager : MonoBehaviour
     {
         PlayerGotScore += AddScore;
         PlayerManager.PlayerMiss += ResetKillstreak;
+        PlayerManager.GotHit += ResetKillstreak;
         PlayerManager.PlayerKill += IncreaseMulti;
     }
 
@@ -39,6 +40,7 @@ public class ScoreManager : MonoBehaviour
     {
         PlayerGotScore -= AddScore;
         PlayerManager.PlayerMiss -= ResetKillstreak;
+        PlayerManager.GotHit -= ResetKillstreak;
         PlayerManager.PlayerKill -= IncreaseMulti;
     }
 
